@@ -1,5 +1,9 @@
 package com.example.rhythme.dao;
 
-public interface UserDAO {
+import com.example.rhythme.dto.UserDTO;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
+public interface UserDAO {
+    void signup(UserDTO userDTO);
 }
