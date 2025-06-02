@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     public UserServiceImpl(UserDAO userDAO) {
         this.userDAO = userDAO;
-        this.passwordEncoder = new BCryptPasswordEncoder(); // 직접 생성하거나 @Bean으로 주입
+        this.passwordEncoder = new BCryptPasswordEncoder(); // 직접 생성
     }
 
     @Override
@@ -26,5 +26,15 @@ public class UserServiceImpl implements UserService {
 
         // DB에 저장
         userDAO.signup(userDTO);
+    }
+
+    @Override
+    public boolean login(UserDTO userDTO) {
+        UserDTO foundUser = userDAO.findByUsername(userDTO.getUsername());
+        if (foundUser != null) {
+            // 암호화된 비밀번호와 비교
+            return passwordEncoder.matches(userDTO.getPassword(), foundUser.getPassword());
+        }
+        return false;
     }
 }

@@ -2,10 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.rhythme.dao.UserDAO">
 
-    <insert id="signup" parameterType="com.example.rhythme.dto.UserDTO">
+    <insert id="signup" parameterType="com.example.rhythme.dto.UserDTO" useGeneratedKeys="true" keyProperty="userId">
         INSERT INTO users (username, password)
         VALUES (#{username}, #{password});
     </insert>
+
+    <select id="findByUsername" parameterType="String" resultType="com.example.rhythme.dto.UserDTO">
+        SELECT * FROM users WHERE username = #{username}
+    </select>
+
 
 
     <!--   <insert id="" parameterType="com.example.rhythme.dto.UserDTO">-->
