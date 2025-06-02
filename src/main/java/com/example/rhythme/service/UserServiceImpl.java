@@ -20,6 +20,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void signup(UserDTO userDTO) {
+
+        UserDTO existingUser = userDAO.findByUsername(userDTO.getUsername());
+
+        if (existingUser != null) {
+            throw new RuntimeException("이미 존재하는 아이디입니다.");
+        }
+
         // 비밀번호 암호화
         String encodedPassword = passwordEncoder.encode(userDTO.getPassword());
         userDTO.setPassword(encodedPassword);
