@@ -16,4 +16,22 @@
         FROM songs
     </select>
 
+    <insert id="Ranking">
+        INSERT INTO user_rankings (user_id, song_id, rank, score, time_seconds)
+        VALUES (#{userId}, #{songId}, #{rank}, #{score}, #{timeSeconds})
+    </insert>
+
+    <select id="findTopRankingsBySongId" resultType="com.example.dto.UserRankingDTO">
+        SELECT * FROM user_rankings
+        WHERE song_id = #{songId}
+        ORDER BY score DESC, time_seconds ASC
+        LIMIT 5
+    </select>
+
+    <select id="findMyRankings" resultType="com.example.dto.UserRankingDTO">
+        SELECT * FROM user_rankings
+        WHERE user_id = #{userId}
+        ORDER BY created_at DESC
+    </select>
+
 </mapper>
