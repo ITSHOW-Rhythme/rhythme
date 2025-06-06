@@ -1,21 +1,21 @@
-    <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     <mapper namespace="com.example.rhythme.dao.RankingDAO">
 
         <insert id="Ranking" parameterType="com.example.rhythme.dto.RankingDTO">
-            INSERT INTO user_rankings (user_id, song_id, rank, score, time_seconds)
+            INSERT INTO ranking (user_id, song_id, rank, score, time_seconds)
             VALUES (#{userId}, #{songId}, #{rank}, #{score}, #{timeSeconds})
         </insert>
 
         <select id="findTopRankingsBySongId" resultType="com.example.rhythme.dto.RankingDTO">
-            SELECT * FROM user_rankings
+            SELECT * FROM ranking
             WHERE song_id = #{songId}
             ORDER BY score DESC, time_seconds ASC
             LIMIT 5
         </select>
 
         <select id="findMyRankings" resultType="com.example.rhythme.dto.RankingDTO">
-            SELECT * FROM user_rankings
+            SELECT * FROM ranking
             WHERE user_id = #{userId}
             ORDER BY created_at DESC
         </select>
