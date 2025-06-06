@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class SongDTO {
-    private Integer song_id;
+    private Integer songId;
     private String title;
     private String artist;
     private String imageUrl;                // 프론트 이미지 URL 필드명과 일치
