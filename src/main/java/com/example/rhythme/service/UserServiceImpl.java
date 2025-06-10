@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     public UserServiceImpl(UserDAO userDAO) {
         this.userDAO = userDAO;
-        this.passwordEncoder = new BCryptPasswordEncoder(); // 직접 생성
+        this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
     @Override
