@@ -22,6 +22,7 @@ public class UserServiceImpl implements UserService {
     public void signup(UserDTO userDTO) {
 
         UserDTO existingUser = userDAO.findByUsername(userDTO.getUsername());
+        System.out.println("existingUser: " + existingUser);
 
         if (existingUser != null) {
             throw new RuntimeException("이미 존재하는 아이디입니다.");
