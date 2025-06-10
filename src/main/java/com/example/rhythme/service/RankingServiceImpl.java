@@ -28,4 +28,9 @@ public class RankingServiceImpl implements RankingService {
     public List<RankingDTO> loadUserRankings(String userId) {
         return rankingDAO.findMyRankings(userId);
     }
+
+    @Override
+    public void saveRanking(RankingDTO rankingDTO) {
+        rankingDAO.Ranking(rankingDTO);
+    }
 }
