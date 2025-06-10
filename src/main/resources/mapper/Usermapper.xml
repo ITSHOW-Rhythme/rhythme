@@ -9,7 +9,7 @@
     </insert>
 
     <select id="findByUsername" parameterType="String" resultType="com.example.rhythme.dto.UserDTO">
-        SELECT user_id, username, password FROM users WHERE username = #{username}
+        SELECT user_id AS userId, username, password FROM users WHERE username = #{username}
     </select>
 
 </mapper>

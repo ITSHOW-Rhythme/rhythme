@@ -7,4 +7,6 @@ import java.util.List;
 public interface RankingService {
     List<RankingDTO> loadTopRankingsBySongId (int songId);
     List<RankingDTO> loadUserRankings (String userId);
+
+    void saveRanking(RankingDTO rankingDTO);
 }
