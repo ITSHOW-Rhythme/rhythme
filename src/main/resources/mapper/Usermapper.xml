@@ -9,7 +9,11 @@
     </insert>
 
     <select id="findByUsername" parameterType="String" resultType="com.example.rhythme.dto.UserDTO">
+<<<<<<< HEAD:src/main/resources/mapper/Usermapper.xml
         SELECT user_id, username, password FROM users WHERE username = #{username}
+=======
+        SELECT * FROM users WHERE username = #{username}
+>>>>>>> origin/setting:src/main/resources/mapper/mapper.xml
     </select>
 
 </mapper>
