@@ -5,7 +5,7 @@
     <!--    user-->
     <insert id="signup" parameterType="com.example.rhythme.dto.UserDTO" useGeneratedKeys="true" keyProperty="userId">
         INSERT INTO users (username, password)
-        VALUES (#{username}, #{password});
+        VALUES (#{username}, #{password})
     </insert>
 
     <select id="findByUsername" parameterType="String" resultType="com.example.rhythme.dto.UserDTO">
