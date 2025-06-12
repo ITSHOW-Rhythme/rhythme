@@ -5,7 +5,7 @@ import lombok.Data;
 import java.sql.Timestamp;
 
 @Data
-public class RecentSongDTO {
+public class LatestSongDTO {
     private int userId;
     private int songId;
     private String title;

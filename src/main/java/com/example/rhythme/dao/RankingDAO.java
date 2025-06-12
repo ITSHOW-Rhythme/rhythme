@@ -11,5 +11,5 @@ public interface RankingDAO {
 
     List<RankingDTO> findTopRankingsBySongId(int songId);
 
-    List<RankingDTO> findMyRankings(String userId);
+    List<RankingDTO> findMyRankings(int userId);
 }

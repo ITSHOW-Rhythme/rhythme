@@ -23,7 +23,7 @@ public class RankingPageController {
 
     // 특정 사용자의 랭킹 리스트 반환
     @GetMapping("/my/{userId}")
-    public List<RankingDTO> loadUserRankings(@PathVariable String userId) {
+    public List<RankingDTO> loadUserRankings(@PathVariable int userId) {
         return rankingService.loadUserRankings(userId);
     }
 }
