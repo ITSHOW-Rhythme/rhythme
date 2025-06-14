@@ -7,9 +7,10 @@ import java.util.List;
 
 @Mapper
 public interface RankingDAO {
-    void Ranking(RankingDTO dto);
+    void Ranking(RankingDTO rankingDTO);
+    void saveRanking(RankingDTO rankingDTO);
 
     List<RankingDTO> findTopRankingsBySongId(int songId);
 
-    List<RankingDTO> findMyRankings(String userId);
+    List<RankingDTO> findMyRankings(int userId);
 }

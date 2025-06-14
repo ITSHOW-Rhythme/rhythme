@@ -3,8 +3,8 @@ package com.example.rhythme.dto;
 import lombok.Data;
 
 @Data
-public class SongDTO {
-    private Integer songId;
+public class AllSongDTO {
+    private Integer song_id;
     private String title;
     private String artist;
     private String imageUrl;                // 프론트 이미지 URL 필드명과 일치

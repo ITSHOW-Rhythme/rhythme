@@ -25,7 +25,7 @@ public class RankingServiceImpl implements RankingService {
     }
 
     @Override
-    public List<RankingDTO> loadUserRankings(String userId) {
+    public List<RankingDTO> loadUserRankings(int userId) {
         return rankingDAO.findMyRankings(userId);
     }
 
