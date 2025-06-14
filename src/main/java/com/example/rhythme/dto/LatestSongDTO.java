@@ -6,10 +6,8 @@ import java.sql.Timestamp;
 
 @Data
 public class LatestSongDTO {
-    private int userId;
-    private int songId;
-    private String title;
-    private String artist;
-    private String audioFile;
-    private Timestamp lastLearnedAt;
+    private int id;
+    private int user_id;
+    private int song_id;
+    private Timestamp last_learned_at;
 }

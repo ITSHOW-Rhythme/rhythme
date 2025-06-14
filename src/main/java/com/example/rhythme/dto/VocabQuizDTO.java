@@ -7,5 +7,5 @@ public class VocabQuizDTO {
     private int id;
     private int song_id;
     private String sentence;
-    private String correctWord;
+    private String correct_word;
 }
