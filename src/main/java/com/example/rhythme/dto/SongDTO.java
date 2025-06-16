@@ -3,7 +3,7 @@ package com.example.rhythme.dto;
 import lombok.Data;
 
 @Data
-public class AllSongDTO {
+public class SongDTO {
     private Integer song_id;
     private String title;
     private String artist;

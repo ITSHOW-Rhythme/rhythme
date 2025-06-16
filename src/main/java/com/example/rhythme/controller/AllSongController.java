@@ -1,6 +1,6 @@
 package com.example.rhythme.controller;
 
-import com.example.rhythme.dto.AllSongDTO;
+import com.example.rhythme.dto.SongDTO;
 import com.example.rhythme.service.AllSongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +24,8 @@ public class AllSongController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<AllSongDTO>> loadAllSongs() {
-        List<AllSongDTO> songs = songService.loadAllSongs();
+    public ResponseEntity<List<SongDTO>> loadAllSongs() {
+        List<SongDTO> songs = songService.loadAllSongs();
         if (songs.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
