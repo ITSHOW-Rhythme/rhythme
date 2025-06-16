@@ -3,7 +3,7 @@
 <mapper namespace="com.example.rhythme.dao.AllSongDAO">
 
     <select id="findAllSongs" resultType="com.example.rhythme.dto.SongDTO">
-        SELECT song_id, title, artist, audio_file AS imageUrl, NULL AS progress
+        SELECT song_id, title, artist, imageUrl, audio_file, NULL AS progress
         FROM songs
     </select>
 
