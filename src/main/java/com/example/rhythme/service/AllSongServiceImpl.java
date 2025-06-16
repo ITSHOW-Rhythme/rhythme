@@ -1,7 +1,7 @@
 package com.example.rhythme.service;
 
 import com.example.rhythme.dao.AllSongDAO;
-import com.example.rhythme.dto.AllSongDTO;
+import com.example.rhythme.dto.SongDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ public class AllSongServiceImpl implements AllSongService {
     }
 
     @Override
-    public List<AllSongDTO> loadAllSongs() {
+    public List<SongDTO> loadAllSongs() {
         return songDAO.findAllSongs();
     }
 

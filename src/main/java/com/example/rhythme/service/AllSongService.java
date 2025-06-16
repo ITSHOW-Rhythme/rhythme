@@ -1,9 +1,9 @@
 package com.example.rhythme.service;
 
-import com.example.rhythme.dto.AllSongDTO;
+import com.example.rhythme.dto.SongDTO;
 
 import java.util.List;
 
 public interface AllSongService {
-    List<AllSongDTO> loadAllSongs();
+    List<SongDTO> loadAllSongs();
 }
