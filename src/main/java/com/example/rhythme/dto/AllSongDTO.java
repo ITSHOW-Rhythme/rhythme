@@ -3,8 +3,8 @@ package com.example.rhythme.dto;
 import lombok.Data;
 
 @Data
-<<<<<<< HEAD:src/main/java/com/example/rhythme/dto/SongDTO.java
-public class SongDTO {
+<<<<<<< HEAD:src/main/java/com/example/rhythme/dto/AllSongDTO.java
+public class AllSongDTO {
 =======
 public class SongDTO {
 >>>>>>> f41560bd168787b96c13bcefacc5867ab1a0855d:src/main/java/com/example/rhythme/dto/SongDTO.java
