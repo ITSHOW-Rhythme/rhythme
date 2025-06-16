@@ -1,7 +1,7 @@
 package com.example.rhythme.controller;
 
 import com.example.rhythme.dto.SongDTO;
-import com.example.rhythme.service.SongService;
+import com.example.rhythme.service.AllSongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,11 +15,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/songs")
-public class SongController {
-    private final SongService songService;
+public class AllSongController {
+    private final AllSongService songService;
 
     @Autowired
-    public SongController(SongService songService){
+    public AllSongController(AllSongService songService){
         this.songService = songService;
     }
 

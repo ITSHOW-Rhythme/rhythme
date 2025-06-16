@@ -3,16 +3,21 @@
     <mapper namespace="com.example.rhythme.dao.RankingDAO">
 
         <insert id="Ranking" parameterType="com.example.rhythme.dto.RankingDTO">
-            INSERT INTO ranking (user_id, song_id, rank, score, time_seconds)
-            VALUES (#{userId}, #{songId}, #{rank}, #{score}, #{timeSeconds})
+            INSERT INTO ranking (user_id, song_id, rank, score, play_time, created_at)
+            VALUES (#{userId}, #{songId}, #{rank}, #{score}, #{timeSeconds}, #{createdAt})
         </insert>
 
         <select id="findTopRankingsBySongId" resultType="com.example.rhythme.dto.RankingDTO">
             SELECT * FROM ranking
             WHERE song_id = #{songId}
-            ORDER BY score DESC, time_seconds ASC
+            ORDER BY score DESC, play_time ASC
             LIMIT 5
         </select>
+
+        <insert id="MyRankings" parameterType="com.example.rhythme.dto.RankingDTO">
+            INSERT INTO rankings (user_id, song_id, score)
+            VALUES (#{userId}, #{songId}, #{score}, NOW())
+        </insert>
 
         <select id="findMyRankings" resultType="com.example.rhythme.dto.RankingDTO">
             SELECT * FROM ranking
@@ -20,4 +25,10 @@
             ORDER BY created_at DESC
         </select>
 
-    </mapper>
+        <insert id="saveRanking" parameterType="com.example.rhythme.dto.RankingDTO">
+            INSERT INTO ranking (user_id, song_id, `rank`, score, play_time)
+            VALUES (#{userId}, #{songId}, #{rank}, #{score}, #{playTime})
+        </insert>
+
+
+</mapper>

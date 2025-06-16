@@ -4,6 +4,6 @@ import com.example.rhythme.dto.SongDTO;
 
 import java.util.List;
 
-public interface SongService {
+public interface AllSongService {
     List<SongDTO> loadAllSongs();
 }
