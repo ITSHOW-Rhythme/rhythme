@@ -8,15 +8,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class LatestSongServiceImpl implements LatestSongService {
 
-    private final LatestSongDAO recentSongDAO;
+    private final LatestSongDAO latestSongDAO;
 
     @Autowired
-    public LatestSongServiceImpl(LatestSongDAO recentSongDAO) {
-        this.recentSongDAO = recentSongDAO;
+    public LatestSongServiceImpl(LatestSongDAO latestSongDAO) {
+        this.latestSongDAO = latestSongDAO;
     }
 
     @Override
     public LatestSongDTO loadRecentSong(int userId) {
-        return recentSongDAO.findMostRecentSongByUserId(userId);
+        return latestSongDAO.findMostRecentSongByUserId(userId);
     }
 }
