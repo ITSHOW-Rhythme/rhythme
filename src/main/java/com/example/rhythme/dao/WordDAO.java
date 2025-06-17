@@ -5,7 +5,4 @@ import java.util.List;
 
 public interface WordDAO {
     List<WordDTO> getAllWords();
-
-    List<WordDTO> findRandomWords(int count);
-
 }

@@ -4,8 +4,5 @@ import com.example.rhythme.dto.WordDTO;
 import java.util.List;
 
 public interface WordService {
-    List<WordDTO> getAllWords();
-
-    List<WordDTO> getRandomWords(int count);
-
+    List<WordDTO> getRandomWordGroup();
 }
