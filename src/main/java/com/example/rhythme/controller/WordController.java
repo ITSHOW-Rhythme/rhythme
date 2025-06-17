@@ -21,4 +21,9 @@ public class WordController {
     public List<WordDTO> getWords() {
         return wordService.getAllWords();
     }
+
+    @GetMapping("/words/random")
+    public List<WordDTO> getRandomWords() {
+        return wordService.getRandomWords(3);  // 3개 단어 랜덤 조회
+    }
 }

@@ -9,6 +9,7 @@ import java.util.List;
 
 @Service
 public class SongServiceImpl implements SongService {
+
     private final SongDAO songDAO;
 
     @Autowired
@@ -21,4 +22,8 @@ public class SongServiceImpl implements SongService {
         return songDAO.findAllSongs();
     }
 
+    @Override
+    public SongDTO getSongById(int songId) {
+        return songDAO.findSongById(songId);
+    }
 }

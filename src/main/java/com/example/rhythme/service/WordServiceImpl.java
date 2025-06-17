@@ -17,4 +17,10 @@ public class WordServiceImpl implements WordService {
     public List<WordDTO> getAllWords() {
         return wordDAO.getAllWords();
     }
+
+    @Override
+    public List<WordDTO> getRandomWords(int count) {
+        return wordDAO.findRandomWords(count);
+    }
+
 }
