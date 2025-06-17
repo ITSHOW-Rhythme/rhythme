@@ -1,7 +1,7 @@
 package com.example.rhythme.controller;
 
 import com.example.rhythme.dto.LatestSongDTO;
-import com.example.rhythme.service.LatestSongService;
+import com.example.rhythme.service.CurrentSongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,23 +10,21 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/users")
-public class LatestSongController {
-    private final LatestSongService latestSongService;
+public class CurrentSongController {
+    private final CurrentSongService currentSongService;
 
     @Autowired
-    public LatestSongController(LatestSongService latestSongService){
-        this.latestSongService = latestSongService;
+    public CurrentSongController(CurrentSongService currentSongService){
+        this.currentSongService = currentSongService;
     }
 
-    @GetMapping("/{userId}/latest-song")
-    public ResponseEntity<LatestSongDTO> loadCurrentSong(@PathVariable int userId){
-        LatestSongDTO currentSong = latestSongService.loadRecentSong(userId);
+    @GetMapping("/{userId}/current-song")
+    public ResponseEntity<LatestSongDTO> getCurrentSong(@PathVariable int userId) {
+        LatestSongDTO currentSong = currentSongService.loadCurrentSong(userId);
         if (currentSong == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(currentSong);
     }
-
-    //가잗 최근 학습한 노래 1개 조회
 
 }

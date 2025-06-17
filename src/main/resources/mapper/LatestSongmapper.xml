@@ -3,7 +3,13 @@
 <mapper namespace="com.example.rhythme.dao.LatestSongDAO">
 
     <select id="findMostRecentSongByUserId" resultType="com.example.rhythme.dto.LatestSongDTO">
-        SELECT rl.user_id, s.song_id, s.title, s.artist, s.audio_file, rl.last_learned_at
+        SELECT
+        rl.user_id,
+        s.song_id,
+        s.title,
+        s.artist,
+        s.audio_file,
+        rl.last_learned_at
         FROM recent_song_learning rl
         JOIN songs s ON rl.song_id = s.song_id
         WHERE rl.user_id = #{userId}
