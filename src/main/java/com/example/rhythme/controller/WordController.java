@@ -20,5 +20,4 @@ public class WordController {
     public List<WordDTO> getRandomWordGroup() {
         return wordService.getRandomWordGroup();
     }
-
 }

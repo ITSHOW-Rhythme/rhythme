@@ -27,4 +27,10 @@ public class WordServiceImpl implements WordService {
                 .limit(3)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<WordDTO> getRandomWords(int count) {
+        return wordDAO.findRandomWords(count);
+    }
+
 }

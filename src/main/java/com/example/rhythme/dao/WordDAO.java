@@ -5,5 +5,4 @@ import java.util.List;
 
 public interface WordDAO {
     List<WordDTO> getAllWords();
-
 }

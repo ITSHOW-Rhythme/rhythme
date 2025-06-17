@@ -1,10 +1,9 @@
 package com.example.rhythme.dao;
 
 import com.example.rhythme.dto.VocabQuizDTO;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
+import java.util.List;
 
-@Mapper
 public interface VocabQuizDAO {
-    VocabQuizDTO findQuizBySongId(@Param("songId") int songId);
+    List<VocabQuizDTO> findBySongId(int songId);
 }
+

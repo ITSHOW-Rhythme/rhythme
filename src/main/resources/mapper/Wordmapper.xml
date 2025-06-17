@@ -7,5 +7,4 @@
     <select id="getAllWords" resultType="com.example.rhythme.dto.WordDTO">
         SELECT * FROM words ORDER BY id
     </select>
-
 </mapper>

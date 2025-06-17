@@ -30,3 +30,4 @@ public class WordDTO {
         this.meaning = meaning;
     }
 }
+

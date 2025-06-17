@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface SongService {
     List<SongDTO> loadAllSongs();
+    SongDTO getSongById(int songId);
 }
