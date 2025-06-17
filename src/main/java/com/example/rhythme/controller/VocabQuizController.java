@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "http://localhost:3000")
 
 @RestController
-@RequestMapping("/api/vocab-quiz")
+@RequestMapping("/api")
 public class VocabQuizController {
 
     private final VocabQuizService vocabQuizService;
@@ -17,7 +17,7 @@ public class VocabQuizController {
         this.vocabQuizService = vocabQuizService;
     }
 
-    @GetMapping("/{songId}")
+    @GetMapping("/vocab-quiz/{songId}")
     public VocabQuizDTO findQuiz(@PathVariable int songId) {
         return vocabQuizService.findQuizBySongId(songId);
     }
