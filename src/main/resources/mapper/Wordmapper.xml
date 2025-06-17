@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.rhythme.dao.WordDAO">
-
     <select id="getAllWords" resultType="com.example.rhythme.dto.WordDTO">
-        SELECT * FROM words ORDER BY id
+        SELECT word_id, word, meaning
+        FROM words
     </select>
+
+    <select id="findRandomWords" resultType="com.example.rhythme.dto.WordDTO">
+        SELECT word_id, word, meaning
+        FROM words
+        ORDER BY RAND()
+        LIMIT #{count}
+    </select>
+
 </mapper>
