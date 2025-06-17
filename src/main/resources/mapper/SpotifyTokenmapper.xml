@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.rhythme.dao.SpotifyTokenDAO">
+
+    <insert id="insertToken" parameterType="com.example.rhythme.dto.SpotifyTokenDTO">
+        INSERT INTO tokens (user_id, access_token, refresh_token, expiry_date)
+        VALUES (#{userId}, #{accessToken}, #{refreshToken}, #{expiryDate})
+    </insert>
+
+    <insert id="upsertToken" parameterType="com.example.rhythme.dto.SpotifyTokenDTO">
+        INSERT INTO tokens (user_id, access_token, refresh_token, expiry_date)
+        VALUES (#{userId}, #{accessToken}, #{refreshToken}, #{expiryDate})
+        ON DUPLICATE KEY UPDATE
+        access_token = #{accessToken},
+        refresh_token = #{refreshToken},
+        expiry_date = #{expiryDate}
+    </insert>
+
+    <select id="findTokenByUserId" parameterType="int" resultType="com.example.rhythme.dto.SpotifyTokenDTO">
+        SELECT user_id, access_token, refresh_token, expiry_date
+        FROM tokens
+        WHERE user_id = #{userId}
+    </select>
+
+    <update id="updateToken" parameterType="com.example.rhythme.dto.SpotifyTokenDTO">
+        UPDATE tokens
+        SET access_token = #{accessToken},
+        refresh_token = #{refreshToken},
+        expiry_date = #{expiryDate}
+        WHERE user_id = #{userId}
+    </update>
+
+    <delete id="deleteTokenByUserId" parameterType="int">
+        DELETE FROM tokens WHERE user_id = #{userId}
+    </delete>
+
+</mapper>

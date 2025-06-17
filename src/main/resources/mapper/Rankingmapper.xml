@@ -15,7 +15,7 @@
         </select>
 
         <insert id="MyRankings" parameterType="com.example.rhythme.dto.RankingDTO">
-            INSERT INTO rankings (user_id, song_id, score)
+            INSERT INTO ranking (user_id, song_id, score)
             VALUES (#{userId}, #{songId}, #{score}, NOW())
         </insert>
 

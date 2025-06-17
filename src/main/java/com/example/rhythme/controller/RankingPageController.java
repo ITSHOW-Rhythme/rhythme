@@ -12,7 +12,7 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000")
 
 @RestController
-@RequestMapping("/api/mylank")
+@RequestMapping("/api")
 public class RankingPageController {
     @Autowired
     private RankingService rankingService;
