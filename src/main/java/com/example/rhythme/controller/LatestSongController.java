@@ -9,22 +9,22 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "http://localhost:3000")
 
 @RestController
-@RequestMapping("/api/recent")
+@RequestMapping("/api/users")
 public class LatestSongController {
-    private final LatestSongService recentSongService;
+    private final LatestSongService latestSongService;
 
     @Autowired
-    public LatestSongController(LatestSongService recentSongService){
-        this.recentSongService = recentSongService;
+    public LatestSongController(LatestSongService latestSongService){
+        this.latestSongService = latestSongService;
     }
 
-    @GetMapping("/{userId}")
-    public ResponseEntity<LatestSongDTO> loadRecentSong(@PathVariable int userId){
-        LatestSongDTO recentSong = recentSongService.loadRecentSong(userId);
-        if (recentSong == null) {
+    @GetMapping("/{userId}/current-song")
+    public ResponseEntity<LatestSongDTO> loadCurrentSong(@PathVariable int userId){
+        LatestSongDTO currentSong = latestSongService.loadRecentSong(userId);
+        if (currentSong == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(recentSong);
+        return ResponseEntity.ok(currentSong);
     }
 
     //가잗 최근 학습한 노래 1개 조회

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.rhythme.dao.SongProgressDAO">
+
+    <update id="updateProgress" parameterType="com.example.rhythme.dto.SongProgressDTO">
+        UPDATE songs
+        SET progress = #{progress}
+        WHERE song_id = #{song_id}
+    </update>
+
+</mapper>
