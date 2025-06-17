@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.rhythme.dao.VocabQuizDAO">
 
-    <select id="findQuizBySongId" resultType="com.example.rhythme.dto.VocabQuizDTO">
-        SELECT sentence, correct_word
-        FROM song_quiz
+    <select id="findBySongId" resultType="com.example.rhythme.dto.VocabQuizDTO">
+        SELECT id, song_id, sentence, correct_word, meaning
+        FROM song_vocab_quiz
         WHERE song_id = #{songId}
-        LIMIT 1
     </select>
+
 
 </mapper>

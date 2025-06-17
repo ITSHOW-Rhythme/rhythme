@@ -1,8 +1,8 @@
 package com.example.rhythme.service;
 
-import com.example.rhythme.dao.VocabQuizDAO;
 import com.example.rhythme.dto.VocabQuizDTO;
+import java.util.List;
 
 public interface VocabQuizService {
-    VocabQuizDTO findQuizBySongId(int songId);
+    List<VocabQuizDTO> findQuizzesBySongId(int songId);
 }

@@ -4,7 +4,8 @@ import lombok.Data;
 
 @Data
 public class WordDTO {
-    private int id;
+    private int word_id;
     private String word;
-    private String answer;
+    private String meaning;
 }
+
