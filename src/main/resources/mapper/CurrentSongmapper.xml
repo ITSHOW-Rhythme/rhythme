@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.rhythme.dao.CurrentSongDAO">
+
+    <select id="findCurrentSongByUserId" resultType="com.example.rhythme.dto.LatestSongDTO">
+        SELECT
+        ucs.user_id,
+        s.song_id,
+        s.title,
+        s.artist,
+        s.audio_file,
+        ucs.updated_at AS last_learned_at
+        FROM user_current_song ucs
+        JOIN songs s ON ucs.song_id = s.song_id
+        WHERE ucs.user_id = #{userId}
+    </select>
+
+</mapper>
