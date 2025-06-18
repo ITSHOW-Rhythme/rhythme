@@ -8,6 +8,5 @@ import java.util.List;
 @Mapper
 public interface SongDAO {
     List<SongDTO> findAllSongs();
-
     SongDTO findSongById(int songId);
 }
