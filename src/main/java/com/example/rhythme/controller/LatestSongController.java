@@ -24,8 +24,10 @@ public class LatestSongController {
     }
 
     //가장 최근 학습한 노래 1개 조회
-    @GetMapping("/{userId}/latest-song")
-    public ResponseEntity<LatestSongDTO> loadCurrentSong(@PathVariable int userId){
+    @GetMapping("/{username}/latest-song")
+    public ResponseEntity<LatestSongDTO> loadCurrentSong(@PathVariable String username){
+        Integer userId = userService.findUserIdByUsername(username);
+        System.out.println(username);
         LatestSongDTO currentSong = latestSongService.loadRecentSong(userId);
         if (currentSong == null) {
             return ResponseEntity.notFound().build();
@@ -34,23 +36,25 @@ public class LatestSongController {
     }
 
     // 학습 기록 저장 (userId 기반)
-    @PostMapping("/{userId}/latest-song")
-    public ResponseEntity<Void> saveLearnedSong(@PathVariable int userId, @RequestBody LatestSongDTO dto) {
-        if (dto.getSongId() == 0) {
-            return ResponseEntity.badRequest().build();
-        }
-
-        latestSongService.saveUserSongHistory(userId, dto.getSongId());
-        return ResponseEntity.ok().build();
-    }
+//    @PostMapping("/{userId}/latest-song")
+//    public ResponseEntity<Void> saveLearnedSong(@PathVariable int userId, @RequestBody LatestSongDTO dto) {
+//        if (dto.getSongId() == 0) {
+//            return ResponseEntity.badRequest().build();
+//        }
+//
+//        latestSongService.saveUserSongHistory(userId, dto.getSongId());
+//        return ResponseEntity.ok().build();
+//    }
 
     // 학습 기록 저장 (username 기반)
-    @PostMapping("/latest-song")
-    public ResponseEntity<Void> saveLearnedSongByUsername(@RequestParam String username, @RequestBody LatestSongDTO dto) {
+    @PostMapping("/{username}/latest-song")
+    public ResponseEntity<Void> saveLearnedSongByUsername(@PathVariable String username, @RequestBody LatestSongDTO dto) {
         if (dto.getSongId() == 0) {
             return ResponseEntity.badRequest().build();
         }
 
+        //System.out.println(username);
+        System.out.println(dto);
         Integer userId = userService.findUserIdByUsername(username);
         if (userId == null) {
             return ResponseEntity.notFound().build();

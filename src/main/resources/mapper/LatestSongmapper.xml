@@ -8,7 +8,7 @@
     <select id="findMostRecentSongByUserId" resultType="com.example.rhythme.dto.LatestSongDTO">
         SELECT
         u.user_id,
-        s.song_id,
+        s.song_id as songId,
         s.title,
         s.artist,
         s.audio_file,
