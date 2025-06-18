@@ -12,4 +12,11 @@
         SELECT user_id, username, password FROM users WHERE username = #{username}
     </select>
 
+    <select id="findByUsernameAndPassword" resultType="com.example.rhythme.dto.UserDTO">
+        SELECT user_id, username, password
+        FROM users
+        WHERE username = #{username}
+    </select>
+
+
 </mapper>
