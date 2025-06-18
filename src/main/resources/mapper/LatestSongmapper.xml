@@ -1,19 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="com.example.rhythme.dao.LatestSongDAO">
 
     <select id="findMostRecentSongByUserId" resultType="com.example.rhythme.dto.LatestSongDTO">
         SELECT
-        rl.user_id,
+        u.user_id,
         s.song_id,
         s.title,
         s.artist,
         s.audio_file,
-        rl.last_learned_at
-        FROM recent_song_learning rl
-        JOIN songs s ON rl.song_id = s.song_id
-        WHERE rl.user_id = #{userId}
-        ORDER BY rl.last_learned_at DESC
+        h.learned_at AS last_learned_at
+        FROM user_song_history h
+        JOIN songs s ON h.song_id = s.song_id
+        JOIN users u ON h.user_id = u.user_id
+        WHERE h.user_id = #{userId}
+        ORDER BY h.learned_at DESC
         LIMIT 1
     </select>
 

@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Data
 public class LatestSongDTO {
-    private int userId;
+    private int user_id;
     private int songId;
     private String title;
     private String artist;
