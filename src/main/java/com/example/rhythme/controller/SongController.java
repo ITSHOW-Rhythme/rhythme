@@ -32,7 +32,7 @@ public class SongController {
 
     // songId로 단일 노래 조회
     @GetMapping("/{songId}")
-    public ResponseEntity<SongDTO> getSongById(@PathVariable int songId) {
+    public ResponseEntity<SongDTO> getSongById(@PathVariable("songId") int songId) {
         SongDTO song = songService.getSongById(songId);
         if (song == null) {
             return ResponseEntity.notFound().build();

@@ -3,10 +3,16 @@
 <mapper namespace="com.example.rhythme.dao.VocabQuizDAO">
 
     <select id="findBySongId" resultType="com.example.rhythme.dto.VocabQuizDTO">
-        SELECT id, song_id, sentence, correct_word, meaning
+        SELECT
+        id AS wordId,
+        song_id,
+        sentence,
+        correct_word,
+        meaning
         FROM song_vocab_quiz
         WHERE song_id = #{songId}
     </select>
+
 
 
 </mapper>

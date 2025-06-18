@@ -16,4 +16,7 @@ public class SongDTO {
 
     @JsonProperty("imageUrl")
     private String imageUrl;
+
+    @JsonProperty("progress")
+    private Integer progress;  // 🔥 progress 필드 추가!
 }

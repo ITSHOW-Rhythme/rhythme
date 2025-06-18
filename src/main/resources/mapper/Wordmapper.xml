@@ -5,6 +5,10 @@
 <mapper namespace="com.example.rhythme.dao.WordDAO">
 
     <select id="getAllWords" resultType="com.example.rhythme.dto.WordDTO">
-        SELECT * FROM words ORDER BY id
+        SELECT * FROM words ORDER BY word_id
+    </select>
+
+    <select id="findRandomWords" parameterType="int" resultType="com.example.rhythme.dto.WordDTO">
+        SELECT * FROM words ORDER BY RAND() LIMIT #{count}
     </select>
 </mapper>
