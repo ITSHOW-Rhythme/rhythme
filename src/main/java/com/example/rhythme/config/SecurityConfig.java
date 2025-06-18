@@ -32,6 +32,7 @@ public class SecurityConfig {
                                 "/favicon.ico",
                                 "/logo192.png",
                                 "/manifest.json"
+
                         ).permitAll()
                         .anyRequest().permitAll()
                 )
