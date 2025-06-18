@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.rhythme.dao.UserDAO">
 
-    <!--    user-->
     <insert id="signup" parameterType="com.example.rhythme.dto.UserDTO" useGeneratedKeys="true" keyProperty="userId">
         INSERT INTO users (username, password)
         VALUES (#{username}, #{password})
     </insert>
 
+    <!--사용자 로그인, 프로필 확인, 인증 등의 작업에서 사용자 전체 정보가 필요할 때 사용-->
     <select id="findByUsername" parameterType="String" resultType="com.example.rhythme.dto.UserDTO">
         SELECT user_id, username, password FROM users WHERE username = #{username}
     </select>
@@ -18,5 +18,9 @@
         WHERE username = #{username}
     </select>
 
+    <!--username을 알고 있을 때, 해당 사용자의 고유 식별자(userId)만 빠르게 조회하고 싶을 때 사용-->
+    <select id="findUserIdByUsername" parameterType="String" resultType="Integer">
+        SELECT user_id FROM users WHERE username = #{username}
+    </select>
 
 </mapper>
