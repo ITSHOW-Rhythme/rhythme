@@ -26,7 +26,16 @@ public class LatestSongController {
         }
         return ResponseEntity.ok(currentSong);
     }
+    //가장 최근 학습한 노래 1개 조회
 
-    //가잗 최근 학습한 노래 1개 조회
+    @PostMapping("/{userId}/latest-song")
+    public ResponseEntity<Void> saveLearnedSong(@PathVariable int userId, @RequestBody LatestSongDTO dto) {
+        if (dto.getSongId() == 0) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        latestSongService.saveUserSongHistory(userId, dto.getSongId());
+        return ResponseEntity.ok().build();
+    }
 
 }
