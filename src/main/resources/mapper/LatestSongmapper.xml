@@ -21,4 +21,9 @@
         LIMIT 1
     </select>
 
+    <insert id="insertUserSongHistory">
+        INSERT INTO user_song_history (user_id, song_id)
+        VALUES (#{userId}, #{songId})
+    </insert>
+
 </mapper>
