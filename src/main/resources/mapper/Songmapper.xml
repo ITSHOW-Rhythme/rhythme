@@ -5,11 +5,11 @@
 
     <select id="findAllSongs" resultType="com.example.rhythme.dto.SongDTO">
         SELECT
-        song_id,
+        song_id AS songId,
         title,
         artist,
         audio_file,
-        image_url,
+        imageUrl,
         CAST(progress AS UNSIGNED) AS progress
         FROM songs
     </select>
@@ -20,7 +20,7 @@
         title,
         artist,
         audio_file,
-        image_url
+        imageUrl
         FROM songs
         WHERE song_id = #{songId}
     </select>
