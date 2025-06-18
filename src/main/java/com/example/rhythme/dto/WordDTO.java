@@ -1,5 +1,7 @@
 package com.example.rhythme.dto;
 
+import java.util.Objects;
+
 public class WordDTO {
     private int id;
     private String word;
@@ -29,5 +31,18 @@ public class WordDTO {
     public void setMeaning(String meaning) {
         this.meaning = meaning;
     }
-}
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof WordDTO)) return false;
+        WordDTO that = (WordDTO) o;
+        return word != null && word.equals(that.word);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(word);
+    }
+
+}
